@@ -1,0 +1,38 @@
+{
+  "name": "k8s-guide",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Kubernetes 中文学习指南 — 从入门到面试的一站式 K8s 学习指南",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "lint": "markdownlint-cli2 \"docs/**/*.md\" \"#docs/.vitepress\" \"#docs/templates\" \"#node_modules\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/callmebg/k8s-guide.git"
+  },
+  "keywords": [
+    "kubernetes",
+    "k8s",
+    "guide",
+    "interview",
+    "chinese"
+  ],
+  "author": "callmebg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/callmebg/k8s-guide/issues"
+  },
+  "homepage": "https://github.com/callmebg/k8s-guide#readme",
+  "devDependencies": {
+    "markdownlint-cli2": "^0.23.1",
+    "mermaid": "^11.16.0",
+    "vite-plugin-pwa": "^1.3.0",
+    "vitepress": "^1.6.4",
+    "vitepress-plugin-mermaid": "^2.0.17",
+    "vue": "^3.5.40"
+  }
+}

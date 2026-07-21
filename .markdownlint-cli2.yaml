@@ -1,0 +1,46 @@
+# markdownlint-cli2 configuration
+# See: https://github.com/DavidAnson/markdownlint-cli2
+
+config:
+  # MD013 - Line length - disabled for Chinese text
+  line-length: false
+
+  # MD033 - Inline HTML - allowed for callouts and image comments
+  no-inline-html: false
+
+  # MD041 - First line should be a heading - disabled (frontmatter comes first)
+  first-line-heading: false
+
+  # MD025 - Single title - disabled (frontmatter title + H1 heading coexist in VitePress)
+  single-title: false
+
+  # MD036 - Emphasis as heading - disabled (placeholders use italic)
+  no-emphasis-as-heading: false
+
+  # MD060 - Table column style - disabled (Chinese tables are hard to align)
+  table-column-style: false
+
+  # MD026 - Trailing punctuation in heading - disabled (Chinese headings often end with punctuation)
+  no-trailing-punctuation: false
+
+  # MD029 - Ordered list item prefix - disabled (details blocks break list continuity)
+  ol-prefix: false
+
+  # MD040 - Fenced code language - disabled (output blocks don't need language)
+  fenced-code-language: false
+
+  # MD032 - Blanks around lists - disabled (Chinese formatting)
+  blanks-around-lists: false
+
+  # MD024 - Multiple headings with the same content - allowed for templates
+  no-duplicate-heading:
+    siblings_only: true
+
+  # MD046 - Code block style - fenced only
+  code-block-style:
+    style: fenced
+
+ignore:
+  - "node_modules"
+  - "docs/.vitepress"
+  - "docs/templates"

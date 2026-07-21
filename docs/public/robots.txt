@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://k8s-guide.vercel.app/sitemap.xml
