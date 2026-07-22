@@ -1,0 +1,8 @@
+apiVersion: example.com/v1
+kind: WebsiteInfo
+metadata:
+  name: my-blog
+spec:
+  url: "https://myblog.com"
+  maintainer: "bg"
+  replicas: 3

@@ -1,0 +1,7 @@
+apiVersion: example.com/v1
+kind: WebsiteInfo
+metadata:
+  name: bad-website
+spec:
+  url: "https://bad.com"
+  replicas: 100

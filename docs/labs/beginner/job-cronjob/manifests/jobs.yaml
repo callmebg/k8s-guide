@@ -1,0 +1,51 @@
+---
+# 成功的 Job：计算圆周率
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pi-calc
+spec:
+  completions: 1
+  backoffLimit: 2
+  template:
+    spec:
+      containers:
+      - name: pi
+        image: perl:5.34
+        command: ["perl", "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+      restartPolicy: Never
+---
+# 失败的 Job：故意退出码 1（观察重试行为）
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: fail-job
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      containers:
+      - name: fail
+        image: busybox:1.36
+        command: ['sh', '-c', 'echo "Attempt starting..." && sleep 3 && exit 1']
+      restartPolicy: Never
+---
+# CronJob：每分钟触发一次（演示用）
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: heartbeat
+spec:
+  schedule: "*/1 * * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: beat
+            image: busybox:1.36
+            command: ['sh', '-c', 'echo "Heartbeat: $(date)"']
+          restartPolicy: OnFailure

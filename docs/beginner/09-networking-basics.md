@@ -99,6 +99,8 @@ K8s 保证：
 
 ## 动手实验
 
+> ⚠️ **前置条件**：确保你的 Kind 集群是使用 [02 文中的 kind-config.yaml](./02-install-kind#步骤-4创建你的第一个集群) 创建的（包含 80/443 端口映射）。否则 `curl localhost` 将无法连通。
+
 ### 步骤 1：安装 Ingress Controller
 
 ```bash

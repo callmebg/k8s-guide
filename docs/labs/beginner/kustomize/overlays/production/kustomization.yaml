@@ -1,0 +1,23 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- ../../base
+
+namespace: production
+
+commonLabels:
+  env: production
+
+images:
+- name: nginx
+  newTag: "1.27"
+
+patches:
+- path: replica-count.yaml
+
+configMapGenerator:
+- name: app-config
+  literals:
+  - log_level=info
+  - max_connections=500

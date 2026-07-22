@@ -189,20 +189,14 @@ nginx-nodeport   NodePort   10.96.78.45    (none)        80:30080/TCP   5s
 
 ### 步骤 7：从外部访问
 
-在 Kind 集群中，需要先获取节点 IP：
+如果你在步骤 4 使用了 `kind-config.yaml`（包含 `extraPortMappings`），NodePort 30080 已映射到宿主机，可以直接访问：
 
 ```bash
-# 获取 Kind 节点的内部 IP
-kubectl get nodes -o wide
+curl http://localhost:30080
 ```
 
-然后用端口转发来模拟外部访问：
-
-```bash
-kubectl port-forward service/nginx-nodeport 8080:80
-```
-
-打开浏览器访问 `http://localhost:8080`。
+> 💡 **如果没有配置 extraPortMappings**，Kind 节点的 IP 是 Docker 内部网络，宿主机无法直接访问。
+> 此时可以用 `kubectl port-forward service/nginx-nodeport 8080:80` 临时转发，但这不是 NodePort 的工作方式——port-forward 是 kubectl 的独立机制，与 NodePort 无关。
 
 ### 步骤 8：清理
 

@@ -159,8 +159,8 @@ sequenceDiagram
     U->>API: POST /api/v1/pods
     API->>API: 认证 + 鉴权 + 准入控制
     API->>ETCD: 写入 Pod（Pending）
-    CM->>API: Watch 到新 Pod
-    Note over CM: 如果是 Deployment 管理的 Pod\n由 ReplicaSet Controller 处理
+    CM-.->>API: Watch 到新 Pod（仅 Deployment 管理时）
+    Note over CM: 裸 Pod 创建时 CM 不参与\n仅 Deployment/ReplicaSet 管理的 Pod\n由对应 Controller 处理
     SCH->>API: Watch 到未调度的 Pod
     SCH->>SCH: Filtering + Scoring
     SCH->>API: 绑定 Pod 到 Node

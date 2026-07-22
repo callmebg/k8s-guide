@@ -70,6 +70,11 @@ Kind 依赖 Docker。你需要先安装：
 2. **kubectl**（K8s 命令行工具）
 3. **Kind** 本身
 
+> 🪟 **Windows 用户**：本文所有实验命令均为 Linux/macOS shell 语法。建议通过 **WSL2** 学习：
+> 1. 在 PowerShell（管理员）中执行 `wsl --install`，重启后进入 Ubuntu 终端
+> 2. 安装 [Docker Desktop](https://www.docker.com/products/docker-desktop/)，在 Settings → Resources → WSL Integration 中启用你的 Ubuntu 发行版
+> 3. 后续所有命令直接在 WSL2 Ubuntu 终端中执行（走下面的 **Linux** 路线即可）
+
 ## 动手实验
 
 ### 步骤 1：安装 Docker
@@ -140,8 +145,39 @@ kind version
 
 ### 步骤 4：创建你的第一个集群
 
+先创建配置文件（后续 Ingress 和 NodePort 实验需要端口映射）：
+
 ```bash
-kind create cluster --name k8s-guide
+cat > kind-config.yaml << 'EOF'
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  kubeadmConfigPatches:
+  - |
+    kind: InitConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-labels: "ingress-ready=true"
+  extraPortMappings:
+  - containerPort: 80
+    hostPort: 80
+    protocol: TCP
+  - containerPort: 443
+    hostPort: 443
+    protocol: TCP
+  - containerPort: 30080
+    hostPort: 30080
+    protocol: TCP
+- role: worker
+- role: worker
+EOF
+```
+
+然后创建集群：
+
+```bash
+kind create cluster --name k8s-guide --config kind-config.yaml
 ```
 
 预期输出：

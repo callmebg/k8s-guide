@@ -1,0 +1,86 @@
+# 先创建 v1 和 v2 后端
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-v1
+  template:
+    metadata:
+      labels:
+        app: api-v1
+    spec:
+      containers:
+      - name: echo
+        image: hashicorp/http-echo
+        args: ["-text=v1"]
+        ports:
+        - containerPort: 5678
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-v1
+spec:
+  selector:
+    app: api-v1
+  ports:
+  - port: 80
+    targetPort: 5678
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-v2
+  template:
+    metadata:
+      labels:
+        app: api-v2
+    spec:
+      containers:
+      - name: echo
+        image: hashicorp/http-echo
+        args: ["-text=v2"]
+        ports:
+        - containerPort: 5678
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-v2
+spec:
+  selector:
+    app: api-v2
+  ports:
+  - port: 80
+    targetPort: 5678
+---
+# 权重分流路由
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: canary-route
+spec:
+  parentRefs:
+  - name: my-gateway
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /canary
+    backendRefs:
+    - name: api-v1
+      port: 80
+      weight: 80
+    - name: api-v2
+      port: 80
+      weight: 20

@@ -35,6 +35,10 @@ export default withMermaid(defineConfig({
       '/beginner/': [
         {
           text: '🌱 初学者轨道',
+        },
+        {
+          text: '📦 基础入门 — 把应用跑起来',
+          collapsed: false,
           items: [
             { text: '01. 什么是 Kubernetes', link: '/beginner/01-what-is-k8s' },
             { text: '02. 安装 Kind', link: '/beginner/02-install-kind' },
@@ -46,6 +50,42 @@ export default withMermaid(defineConfig({
             { text: '08. 扩缩容与发布', link: '/beginner/08-scaling-rollout' },
             { text: '09. 网络基础', link: '/beginner/09-networking-basics' },
             { text: '10. 存储基础', link: '/beginner/10-storage-basics' },
+          ],
+        },
+        {
+          text: '🔧 生产化 — 把应用跑稳',
+          collapsed: true,
+          items: [
+            { text: '11. Namespace 与资源配额', link: '/beginner/11-namespace' },
+            { text: '12. 探针与健康检查', link: '/beginner/12-probes' },
+            { text: '13. 资源请求与限制', link: '/beginner/13-resource-limits' },
+            { text: '14. RBAC 权限管理', link: '/beginner/14-rbac' },
+            { text: '15. DaemonSet 与 StatefulSet', link: '/beginner/15-daemonset-statefulset' },
+            { text: '16. Job 与 CronJob', link: '/beginner/16-job-cronjob' },
+            { text: '17. Helm 包管理', link: '/beginner/17-helm' },
+            { text: '18. 日志与监控', link: '/beginner/18-logging-monitoring' },
+            { text: '19. 排障方法论', link: '/beginner/19-troubleshooting' },
+            { text: '20. Gateway API', link: '/beginner/20-gateway-api' },
+          ],
+        },
+        {
+          text: '🚀 进阶实战 — 应对复杂场景',
+          collapsed: true,
+          items: [
+            { text: '21. Init Container 与 Sidecar', link: '/beginner/21-init-container-sidecar' },
+            { text: '22. NetworkPolicy 实战', link: '/beginner/22-networkpolicy' },
+            { text: '23. Ingress 生产实战', link: '/beginner/23-ingress-production' },
+            { text: '24. Pod 安全上下文', link: '/beginner/24-pod-security' },
+            { text: '25. Pod Disruption Budget', link: '/beginner/25-pdb' },
+            { text: '26. Pod 身份与认证机制', link: '/beginner/26-pod-identity' },
+            { text: '27. Custom Resource 入门', link: '/beginner/27-custom-resource' },
+            { text: '28. Kustomize 配置管理', link: '/beginner/28-kustomize' },
+            { text: '29. 集群升级与维护', link: '/beginner/29-cluster-upgrade' },
+            { text: '30. 综合实战：微服务部署', link: '/beginner/30-microservice-deploy' },
+          ],
+        },
+        {
+          items: [
             { text: '🎓 毕业啦', link: '/beginner/graduation' },
           ],
         },

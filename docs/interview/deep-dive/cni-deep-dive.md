@@ -233,7 +233,7 @@ flowchart LR
 |------|------|
 | 无封装开销，性能好 | 需要底层网络支持 L3 路由 |
 | MTU 不缩减 | 配置相对复杂 |
-| Pod IP 可路由 | 不适合公有云（除非支持 BGP） |
+| Pod IP 可路由 | 公有云需额外配置 BGP（如 Direct Connect），overlay 方案通常更简单 |
 
 ### 路线 C：eBPF
 

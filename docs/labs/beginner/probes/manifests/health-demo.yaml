@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: health-demo
+  labels:
+    app: health-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: health-demo
+  template:
+    metadata:
+      labels:
+        app: health-demo
+    spec:
+      containers:
+      - name: app
+        image: busybox:1.36
+        command: ['sh', '-c', 'touch /tmp/healthy /tmp/ready && while true; do sleep 1; done']
+        ports:
+        - containerPort: 8080
+        livenessProbe:
+          exec:
+            command: ['cat', '/tmp/healthy']
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          exec:
+            command: ['cat', '/tmp/ready']
+          initialDelaySeconds: 3
+          periodSeconds: 3
+          failureThreshold: 2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: health-svc
+spec:
+  selector:
+    app: health-demo
+  ports:
+  - port: 80
+    targetPort: 8080
