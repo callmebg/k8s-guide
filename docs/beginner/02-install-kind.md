@@ -169,6 +169,7 @@ kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
 - role: control-plane
+  image: kindest/node:v1.31.0 
   kubeadmConfigPatches:
   - |
     kind: InitConfiguration
@@ -186,7 +187,9 @@ nodes:
     hostPort: 30080
     protocol: TCP
 - role: worker
+  image: kindest/node:v1.31.0 
 - role: worker
+  image: kindest/node:v1.31.0 
 EOF
 ```
 
@@ -201,15 +204,18 @@ kind create cluster --name k8s-guide --config kind-config.yaml
 ```
 Creating cluster "k8s-guide" ...
  ✓ Ensuring node image (kindest/node:v1.31.0) 🖼
- ✓ Preparing nodes 📦
+ ✓ Preparing nodes 📦 📦 📦
  ✓ Writing configuration 📜
  ✓ Starting control-plane 🕹️
  ✓ Installing CNI 🔌
  ✓ Installing StorageClass 💾
+ ✓ Joining worker nodes 🚜
 Set kubectl context to "kind-k8s-guide"
 You can now use your cluster with:
 
 kubectl cluster-info --context kind-k8s-guide
+
+Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
 ```
 
 ### 步骤 5：验证集群
@@ -221,8 +227,10 @@ kubectl get nodes
 预期输出：
 
 ```
-NAME                      STATUS   ROLES           AGE   VERSION
-k8s-guide-control-plane   Ready    control-plane   30s   v1.31.0
+NAME                      STATUS   ROLES           AGE     VERSION
+k8s-guide-control-plane   Ready    control-plane   2m29s   v1.31.0
+k8s-guide-worker          Ready    <none>          85s     v1.31.0
+k8s-guide-worker2         Ready    <none>          85s     v1.31.0
 ```
 
 ```bash
@@ -232,8 +240,8 @@ kubectl cluster-info
 预期输出：
 
 ```
-Kubernetes control plane is running at https://127.0.0.1:xxxxx
-CoreDNS is running at https://127.0.0.1:xxxxx/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+Kubernetes control plane is running at https://127.0.0.1:45819
+CoreDNS is running at https://127.0.0.1:45819/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 ```
 
 🎉 **恭喜！你有了一个运行中的 K8s 集群！**
