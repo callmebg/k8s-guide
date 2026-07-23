@@ -7,6 +7,7 @@ description: CNI 网络实现深度剖析 — 从合约到 eBPF
 depth: advanced
 prerequisites:
   - /interview/breadth/networking-review
+k8sVersion: "v1.31.0"
 ---
 
 # 🌐 CNI 深潜：一个数据包的跨节点之旅

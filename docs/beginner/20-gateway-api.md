@@ -9,6 +9,7 @@ tags:
   - Gateway API
   - 网络
   - Ingress
+k8sVersion: "v1.31.0"
 ---
 
 # Gateway API

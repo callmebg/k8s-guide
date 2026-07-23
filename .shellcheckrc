@@ -1,0 +1,16 @@
+# Shellcheck configuration for K8s Guide lab scripts
+#
+# Lab scripts source common/kind-base.sh via relative paths.
+# This is expected behavior, not an error.
+
+# SC1091: Not following: <file> was not specified as input
+# Lab scripts source kind-base.sh from sibling/ancestor directories
+disable=SC1091
+
+# SC1090: Can't follow non-constant source
+# Same reason as SC1091 - lab scripts use relative source paths
+disable=SC1090
+
+# SC2034: Variable appears unused
+# Some variables are consumed by sourced scripts (kind-base.sh)
+disable=SC2034

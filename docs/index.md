@@ -4,7 +4,7 @@ layout: home
 hero:
   name: K8s Guide
   text: Kubernetes 中文学习指南
-  tagline: 从入门到面试的一站式 K8s 学习指南
+  tagline: 从入门到面试的一站式 K8s 学习指南 · 基于 Kubernetes v1.31.0
   actions:
     - theme: brand
       text: 🌱 我是初学者

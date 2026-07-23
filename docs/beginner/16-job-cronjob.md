@@ -9,6 +9,7 @@ tags:
   - Job
   - CronJob
   - 批处理
+k8sVersion: "v1.31.0"
 ---
 
 # Job 与 CronJob

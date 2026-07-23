@@ -9,6 +9,7 @@ tags:
   - DaemonSet
   - StatefulSet
   - 工作负载
+k8sVersion: "v1.31.0"
 ---
 
 # DaemonSet 与 StatefulSet

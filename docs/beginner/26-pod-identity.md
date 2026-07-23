@@ -10,6 +10,7 @@ tags:
   - Token
   - 认证
   - projected volume
+k8sVersion: "v1.31.0"
 ---
 
 # Pod 身份与认证机制

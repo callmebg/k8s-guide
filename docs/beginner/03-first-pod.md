@@ -8,6 +8,7 @@ lab_required: true
 tags:
   - Pod
   - 核心资源
+k8sVersion: "v1.31.0"
 ---
 
 # 第一个 Pod

@@ -11,6 +11,7 @@ tags:
   - 灰度发布
   - 限流
   - cert-manager
+k8sVersion: "v1.31.0"
 ---
 
 # Ingress 生产实战

@@ -9,6 +9,7 @@ tags:
   - HPA
   - 扩缩容
   - 发布策略
+k8sVersion: "v1.31.0"
 ---
 
 # 扩缩容与发布
@@ -73,9 +74,15 @@ Kind 集群默认没有 Metrics Server，需要先安装：
 ```bash
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 
-# Kind 需要额外配置（忽略 TLS 验证）
-kubectl patch deployment metrics-server -n kube-system --type='json' -p='[{"op": "add", "path": "/spec/template/spec/containers/0/args/-", "value": "--kubelet-insecure-tls"}]'
+# Kind 集群使用自签证书，Metrics Server 默认会因 TLS 验证失败（x509 错误）
+# --kubelet-insecure-tls 跳过 TLS 验证，仅适用于本地开发和测试环境
+kubectl patch deployment metrics-server -n kube-system --type='json' \
+  -p='[{"op": "add", "path": "/spec/template/spec/containers/0/args/-", "value": "--kubelet-insecure-tls"}]'
 ```
+
+> ⚠️ **开发/测试限定**：`--kubelet-insecure-tls` 会跳过 kubelet 的 TLS 证书验证，**仅用于本地 Kind/Minikube 等开发环境**。生产集群中应配置 [kubelet-csr-approver](https://github.com/postfinance/kubelet-csr-approver) 来自动签发 kubelet 证书，实现安全的 TLS 通信。
+>
+> 本文基于 Metrics Server v0.7.x 验证，最新安装方式请参考 [Metrics Server 官方文档](https://github.com/kubernetes-sigs/metrics-server)。
 
 等待 Metrics Server 就绪：
 

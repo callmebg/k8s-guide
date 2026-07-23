@@ -11,6 +11,7 @@ tags:
   - 毕业项目
   - HPA
   - Ingress
+k8sVersion: "v1.31.0"
 ---
 
 # 综合实战：微服务部署

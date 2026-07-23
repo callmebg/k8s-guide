@@ -8,6 +8,7 @@ lab_required: true
 tags:
   - Helm
   - 包管理
+k8sVersion: "v1.31.0"
 ---
 
 # Helm 包管理

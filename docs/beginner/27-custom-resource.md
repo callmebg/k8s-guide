@@ -10,6 +10,7 @@ tags:
   - Custom Resource
   - Operator
   - 扩展
+k8sVersion: "v1.31.0"
 ---
 
 # Custom Resource 入门

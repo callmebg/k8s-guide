@@ -9,6 +9,7 @@ tags:
   - 网络
   - Ingress
   - DNS
+k8sVersion: "v1.31.0"
 ---
 
 # 网络基础

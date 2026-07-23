@@ -3,6 +3,7 @@ track: interview
 type: strategy
 title: 面试策略
 description: K8s 岗位面试策略 — 简历项目包装、面试流程、岗位分析
+k8sVersion: "v1.31.0"
 ---
 
 # 面试策略

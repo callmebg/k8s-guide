@@ -4,6 +4,7 @@ type: question-bank
 domain: networking
 title: 网络面试题集
 description: K8s 网络高频面试题 — 双层答案（简答 + 深入）
+k8sVersion: "v1.31.0"
 ---
 
 # 网络面试题集

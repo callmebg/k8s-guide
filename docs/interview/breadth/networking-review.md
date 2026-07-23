@@ -7,6 +7,7 @@ description: K8s 网络核心概念速览 — kube-proxy 模式、CNI 概念、N
 depth: intermediate
 prerequisites:
   - /beginner/09-networking-basics
+k8sVersion: "v1.31.0"
 ---
 
 # 网络概念速览

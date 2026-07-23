@@ -9,6 +9,7 @@ tags:
   - 存储
   - PV
   - PVC
+k8sVersion: "v1.31.0"
 ---
 
 # 存储基础

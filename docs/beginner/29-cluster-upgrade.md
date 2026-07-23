@@ -11,6 +11,7 @@ tags:
   - 证书
   - kubeadm
   - 运维
+k8sVersion: "v1.31.0"
 ---
 
 # 集群升级与维护

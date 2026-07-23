@@ -10,6 +10,7 @@ tags:
   - 配置管理
   - 多环境
   - kubectl
+k8sVersion: "v1.31.0"
 ---
 
 # Kustomize 配置管理

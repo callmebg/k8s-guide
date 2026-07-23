@@ -9,6 +9,7 @@ tags:
   - RBAC
   - 安全
   - ServiceAccount
+k8sVersion: "v1.31.0"
 ---
 
 # RBAC 权限管理

@@ -19,6 +19,12 @@ export default withMermaid(defineConfig({
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'K8s Guide - Kubernetes 中文学习指南' }],
     ['meta', { property: 'og:description', content: '从入门到面试的一站式 K8s 学习指南' }],
+    ['meta', { property: 'og:image', content: 'https://k8s-guide.vercel.app/og-image.png' }],
+    ['meta', { property: 'og:url', content: 'https://k8s-guide.vercel.app' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: 'K8s Guide - Kubernetes 中文学习指南' }],
+    ['meta', { name: 'twitter:description', content: '从入门到面试的一站式 K8s 学习指南' }],
+    ['meta', { name: 'twitter:image', content: 'https://k8s-guide.vercel.app/og-image.png' }],
   ],
 
   themeConfig: {
@@ -91,6 +97,7 @@ export default withMermaid(defineConfig({
         },
       ],
       '/interview/': [
+        { text: '💡 建议阅读顺序：全景图 → 广度速览 → 领域深潜 → 题库 → 策略' },
         {
           text: '💼 求职者轨道',
           items: [
@@ -108,12 +115,18 @@ export default withMermaid(defineConfig({
           text: '领域深潜',
           items: [
             { text: '🌐 CNI 深潜', link: '/interview/deep-dive/cni-deep-dive' },
+            { text: '⏰ 调度深潜', link: '/interview/deep-dive/scheduling-deep-dive' },
+            { text: '💾 存储深潜', link: '/interview/deep-dive/storage-deep-dive' },
+            { text: '🔒 安全深潜', link: '/interview/deep-dive/security-deep-dive' },
           ],
         },
         {
           text: '面试准备',
           items: [
             { text: '网络面试题', link: '/interview/question-bank/networking' },
+            { text: '调度面试题', link: '/interview/question-bank/scheduling' },
+            { text: '存储面试题', link: '/interview/question-bank/storage' },
+            { text: '安全面试题', link: '/interview/question-bank/security' },
             { text: '面试策略', link: '/interview/interview-strategy' },
           ],
         },
@@ -161,6 +174,11 @@ export default withMermaid(defineConfig({
 
     lastUpdated: {
       text: '最后更新于',
+    },
+
+    editLink: {
+      pattern: 'https://github.com/callmebg/k8s-guide/issues/new?template=bug-report.md&title=[反馈]%20:path',
+      text: '发现问题？点击反馈',
     },
 
     returnToTopLabel: '回到顶部',

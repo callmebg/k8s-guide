@@ -10,6 +10,7 @@ tags:
   - Sidecar
   - 多容器模式
   - Pod
+k8sVersion: "v1.31.0"
 ---
 
 # Init Container 与 Sidecar

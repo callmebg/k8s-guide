@@ -8,6 +8,7 @@ lab_required: true
 tags:
   - Service
   - 网络
+k8sVersion: "v1.31.0"
 ---
 
 # Service

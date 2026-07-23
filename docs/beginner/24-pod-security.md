@@ -10,6 +10,7 @@ tags:
   - Pod Security
   - 容器安全
   - capabilities
+k8sVersion: "v1.31.0"
 ---
 
 # Pod 安全上下文

@@ -10,6 +10,7 @@ tags:
   - 网络安全
   - 网络隔离
   - Ingress/Egress
+k8sVersion: "v1.31.0"
 ---
 
 # NetworkPolicy 实战

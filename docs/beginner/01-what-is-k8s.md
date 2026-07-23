@@ -8,6 +8,7 @@ lab_required: false
 tags:
   - 入门
   - 概览
+k8sVersion: "v1.31.0"
 ---
 
 # 什么是 Kubernetes

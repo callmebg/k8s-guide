@@ -8,6 +8,7 @@ lab_required: true
 tags:
   - Namespace
   - 资源管理
+k8sVersion: "v1.31.0"
 ---
 
 # Namespace 与资源配额

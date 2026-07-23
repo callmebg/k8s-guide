@@ -9,6 +9,7 @@ tags:
   - ConfigMap
   - Secret
   - 配置管理
+k8sVersion: "v1.31.0"
 ---
 
 # ConfigMap 与 Secret

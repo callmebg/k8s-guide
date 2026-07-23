@@ -8,6 +8,7 @@ lab_required: true
 tags:
   - 入门
   - 环境搭建
+k8sVersion: "v1.31.0"
 ---
 
 # 安装 Kind
@@ -101,9 +102,9 @@ docker version
 
 ```
 Client:
- Version:           24.x.x
+ Version:           29.x.x
 Server:
- Version:           24.x.x
+ Version:           29.x.x
 ```
 
 ### 步骤 2：安装 kubectl
@@ -114,6 +115,8 @@ brew install kubectl
 
 # Linux
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+# 如果上面网络下载不了，试下换谷歌源
+#curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -L -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
 ```
@@ -122,6 +125,13 @@ sudo mv kubectl /usr/local/bin/
 
 ```bash
 kubectl version --client
+```
+
+预期输出：
+
+```
+Client Version: v1.31.0
+Kustomize Version: v5.4.2
 ```
 
 ### 步骤 3：安装 Kind
@@ -141,6 +151,12 @@ sudo mv ./kind /usr/local/bin/kind
 
 ```bash
 kind version
+```
+
+预期输出：
+
+```
+kind v0.24.0 go1.22.6 linux/amd64
 ```
 
 ### 步骤 4：创建你的第一个集群

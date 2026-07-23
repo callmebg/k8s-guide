@@ -8,6 +8,7 @@ lab_required: true
 tags:
   - 排障
   - 调试
+k8sVersion: "v1.31.0"
 ---
 
 # 排障方法论

@@ -10,6 +10,7 @@ tags:
   - PodDisruptionBudget
   - 高可用
   - 运维
+k8sVersion: "v1.31.0"
 ---
 
 # Pod Disruption Budget

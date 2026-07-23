@@ -6,6 +6,7 @@ estimated_time: 10min
 lab_required: false
 tags:
   - 里程碑
+k8sVersion: "v1.31.0"
 ---
 
 # 🎓 恭喜毕业！
